@@ -9,6 +9,8 @@ end
 module Fewseconds
   class Application < Rails::Application
 
+    #Paperclip.options[:command_path] = "/usr/local/bin"
+
     # Devise for heroku
     config.assets.initialize_on_precompile = false
 

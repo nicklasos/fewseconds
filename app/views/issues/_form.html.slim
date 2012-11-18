@@ -1,0 +1,15 @@
+= form_for @issue, html: { multipart: true } do |f|
+  - if @issue.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
+      ul
+        - @issue.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.file_field :image
+  .field
+    = f.text_field :name, placeholder: "Name"
+  .field
+    = f.text_area :instructions, placeholder: "Instructions", cols: 70, rows: 5
+  .actions = f.submit 'Save', class: "btn"

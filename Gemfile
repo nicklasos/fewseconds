@@ -17,6 +17,7 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
+gem "paperclip"
 gem 'devise'
 gem 'slim-rails'
 gem 'gravatar_image_tag'

@@ -1,5 +1,7 @@
 Fewseconds::Application.routes.draw do
+  resources :issues
+
   devise_for :users
 
-  root to: "home#index"
+  root to: "issues#index"
 end

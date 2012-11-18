@@ -16,11 +16,12 @@ html lang="en"
     = stylesheet_link_tag "application", :media => "all"
 
   body
-    .container
-      .logo-box
-        h1 fewseconds
-    .container
-      = render "home/login_box"
+    .container.header
+      .row
+        .span9
+          h1 fewseconds
+        .span3
+          = render "home/login_box"
 
     .container
       = yield
