@@ -1,4 +1,4 @@
-= form_for @issue, html: { multipart: true } do |f|
+= nested_form_for @issue, html: { multipart: true } do |f|
   - if @issue.errors.any?
     #error_explanation
       h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
@@ -12,4 +12,15 @@
     = f.text_field :name, placeholder: "Name"
   .field
     = f.text_area :instructions, placeholder: "Instructions", cols: 70, rows: 5
+
+  h3 Questions
+  .field
+    = f.fields_for :questions do |q|
+      = q.text_field :body
+      = q.link_to_remove "Remove this task"
+
+  = f.link_to_add "Add a question", :questions
+  br
+  br
+
   .actions = f.submit 'Save', class: "btn"

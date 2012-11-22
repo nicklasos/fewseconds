@@ -21,6 +21,7 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
+    @issue.questions.build
 
     respond_to do |format|
       format.html

@@ -13,7 +13,7 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'sqlite3'
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
@@ -21,3 +21,4 @@ gem "paperclip"
 gem 'devise'
 gem 'slim-rails'
 gem 'gravatar_image_tag'
+gem 'nested_form'
