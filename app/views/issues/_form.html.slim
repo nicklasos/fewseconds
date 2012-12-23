@@ -17,9 +17,10 @@
   .field
     = f.fields_for :questions do |q|
       = q.text_field :body
+      | &nbsp;
       = q.link_to_remove "Remove this task"
 
-  = f.link_to_add "Add a question", :questions
+  = f.link_to_add "Add a question", :questions, id: "add_question"
   br
   br
 

@@ -75,6 +75,6 @@ class IssuesController < ApplicationController
   private
 
   def fix_paperclip
-    params[:issue][:image].original_filename.gsub!(/:/, '')
+    params[:issue][:image].original_filename.gsub!(/:/, '') unless params[:issue][:image].blank?
   end
 end
