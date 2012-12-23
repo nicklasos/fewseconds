@@ -1,5 +1,6 @@
 class IssuesController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
+  before_filter :fix_paperclip, only: [:create, :update]
   
   def index
     @issues = Issue.all
@@ -69,5 +70,11 @@ class IssuesController < ApplicationController
       format.html { redirect_to issues_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def fix_paperclip
+    params[:issue][:image].original_filename.gsub!(/:/, '')
   end
 end
