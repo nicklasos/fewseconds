@@ -2,7 +2,7 @@ class Issue < ActiveRecord::Base
   include Paperclip::Glue
 
   has_many :questions, :dependent => :destroy
-  accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:body].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :questions, reject_if: ->(a) { a[:body].blank? }, allow_destroy: true
 
   belongs_to :user
 
