@@ -1,6 +1,8 @@
 class IssuesController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   before_filter :fix_paperclip, only: [:create, :update]
+
+  #load_and_authorize_resource
   
   def index
     @issues = Issue.all

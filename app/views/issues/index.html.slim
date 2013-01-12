@@ -1,11 +1,10 @@
 .row-fluid
-  - @issues.in_groups_of(3, false) do |issues|
+  - @issues.in_groups_of(6, false) do |issues|
     ul.thumbnails
       - issues.each do |issue|
-        li.span4
+        li.span2
           .thumbnail.align_center
             = link_to issue do
               = image_tag issue.image.url(:thumb)
-              h4= issue.name
 
 = link_to 'New Issue', new_issue_path, class: "btn"

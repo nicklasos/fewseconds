@@ -8,7 +8,7 @@ class Issue < ActiveRecord::Base
 
   attr_accessible :image, :instructions, :name, :questions_attributes
 
-  has_attached_file :image , styles: { thumb: "300x200>" }
+  has_attached_file :image , styles: { thumb: "200x200>" }
 
   validates :image, attachment_presence: true
   validates :name, presence: true

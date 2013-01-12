@@ -17,8 +17,9 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
-gem "paperclip"
+gem 'paperclip'
 gem 'devise'
+gem 'cancan'
 gem 'slim-rails'
 gem 'gravatar_image_tag'
 gem 'nested_form'

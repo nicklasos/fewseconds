@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
+    cancan (1.6.8)
     cocaine (0.3.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -152,6 +153,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  cancan
   coffee-rails (~> 3.2.1)
   devise
   factory_girl_rails

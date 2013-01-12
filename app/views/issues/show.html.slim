@@ -14,4 +14,8 @@ p
   - @issue.questions.each do |q|
     p= q.body
 
+- if can? :destroy, @issue
+  = link_to 'Delete', issue_path(@issue), method: :delete, confirm: 'Are you sure?'
+  '
+  '|
 = link_to 'Back', issues_path
