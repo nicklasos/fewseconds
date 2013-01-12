@@ -30,10 +30,6 @@ class IssuesController < ApplicationController
     end
   end
 
-  def edit
-    @issue = Issue.find(params[:id])
-  end
-
   def create
     @issue = current_user.issues.new(params[:issue])
 
@@ -43,20 +39,6 @@ class IssuesController < ApplicationController
         format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    @issue = current_user.issues.find(params[:id])
-
-    respond_to do |format|
-      if @issue.update_attributes(params[:issue])
-        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
