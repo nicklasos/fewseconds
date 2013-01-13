@@ -13,11 +13,12 @@ class Issue < ActiveRecord::Base
   validates :image, attachment_presence: true
   validates :name, presence: true
 
-  validate :at_least_one_question
+  validate :min_and_max_questions
 
   private
 
-  def at_least_one_question
+  def min_and_max_questions
     errors.add(:base, "You must provide at least one question") if questions.size < 1
+    errors.add(:base, "You must provide max four question") if questions.size > 4
   end
 end

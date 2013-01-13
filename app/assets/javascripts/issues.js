@@ -4,7 +4,7 @@ $(function() {
       $addLink = $('a.add_nested_fields');
   
   function toggleAddLink() {
-    $addLink.toggle(fieldsCount <= maxFieldsCount)
+    $addLink.toggle(fieldsCount < maxFieldsCount)
   }
 
   $(document).on('nested:fieldAdded', function() {

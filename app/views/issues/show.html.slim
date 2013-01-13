@@ -11,8 +11,9 @@ p
 
 p
   h4 Questions
-  - @issue.questions.each do |q|
-    p= q.body
+  .row
+    - @issue.questions.each do |q|
+      .span3= q.body
 
 - if can? :destroy, @issue
   = link_to 'Delete', issue_path(@issue), method: :delete, confirm: 'Are you sure?'
