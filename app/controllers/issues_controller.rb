@@ -8,6 +8,10 @@ class IssuesController < ApplicationController
 
   def show
     @issue = Issue.find(params[:id])
+
+    unless current_user.completed_issue?(@issue)
+      render text: "not completed"
+    end
   end
 
   def new

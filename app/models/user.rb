@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :completes
   has_many :completed, through: :completes, source: :issue
+
+  def completed_issue?(issue)
+    Complete.where(user_id: self.id, issue_id: issue.id).any?
+  end
 end
