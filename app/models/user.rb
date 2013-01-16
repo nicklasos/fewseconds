@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   has_many :completed, through: :completes, source: :issue
 
   def completed_issue?(issue)
-    Complete.where(user_id: self.id, issue_id: issue.id).any?
+    Complete.where(user_id: self.id, issue_id: issue.id).any? or self.id.eql? issue.user_id
   end
 end
