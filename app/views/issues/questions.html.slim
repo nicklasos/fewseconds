@@ -8,3 +8,6 @@ div#image
   .row#questions style="display: none"
     .span10
       p Questions
+      ul
+      - @issue.questions.all.each do |q|
+        li= q.body
