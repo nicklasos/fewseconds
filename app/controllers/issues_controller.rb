@@ -10,7 +10,7 @@ class IssuesController < ApplicationController
     @issue = Issue.find(params[:id])
 
     unless current_user.completed_issue?(@issue)
-      render text: "not completed"
+      render 'questions', layout: 'questions'
     end
   end
 

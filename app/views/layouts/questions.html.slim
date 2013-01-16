@@ -15,16 +15,8 @@ html lang="en"
 
     = stylesheet_link_tag "application", :media => "all"
 
-  body
-    .container.header
-      .row
-        .span9
-          h1= link_to "fewseconds", root_path
-        .span3
-          = render "home/login_box"
-
-    .container
-      = yield
-
     = javascript_include_tag "application"
     = yield :javascript_includes
+
+  body
+    = yield
