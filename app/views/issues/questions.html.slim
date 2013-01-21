@@ -7,7 +7,11 @@ div#image
 .container
   .row#questions style="display: none"
     .span10
-      p Questions
-      ul
-      - @issue.questions.all.each do |q|
-        li= q.body
+      = form_tag answer_issue_path(@issue) do
+        p Questions
+        - @issue.questions.all.each do |q|
+          div#question
+            p= q.body
+            p= text_field_tag "answers[#{q.id}]"
+
+        p= submit_tag

@@ -36,6 +36,15 @@ class IssuesController < ApplicationController
     redirect_to issues_url
   end
 
+  def answer
+    text = ''
+    params[:answers].each do |index, body|
+      text += "#{index}. #{body}. <br />"
+    end
+    
+    render text: text
+  end
+
   private
 
   def fix_paperclip
