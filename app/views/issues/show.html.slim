@@ -13,7 +13,13 @@ p
   h4 Questions
   .row
     - @issue.questions.each do |q|
-      .span3= q.body
+      .span3
+        = q.body
+        ul
+          - q.answers.all.each do |a|
+            li= a.body
+
+
 
 - if can? :destroy, @issue
   = link_to 'Delete', issue_path(@issue), method: :delete, confirm: 'Are you sure?'

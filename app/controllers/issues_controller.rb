@@ -37,12 +37,10 @@ class IssuesController < ApplicationController
   end
 
   def answer
-    text = ''
-    params[:answers].each do |index, body|
-      text += "#{index}. #{body}. <br />"
-    end
+    params[:answers].each {|index, body| Answer.create(question_id: index, body: body)}
+    Complete.create(user_id: current_user.id, issue_id: params[:id])
     
-    render text: text
+    redirect_to :back
   end
 
   private
