@@ -17,6 +17,10 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
+group :development do
+  gem 'pry-rails'
+end
+
 gem 'paperclip'
 gem 'devise'
 gem 'cancan'

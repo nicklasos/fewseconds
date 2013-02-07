@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/issues_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/issues_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/issues/questions.html.slim" afterPath="$PROJECT_DIR$/app/views/issues/questions.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-    </list>
+    <list default="true" id="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" name="Default" comment="" />
     <ignored path="fewseconds.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" time="1358778801050" ignored="false" />
+    <file path="/Dummy.txt" changelist="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" time="1360248423167" ignored="false" />
     <file path="/issues_controller.rb" changelist="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" time="1358357268086" ignored="false" />
     <file path="dbtable:/9e57e42b/e35729a4-2ef9-4c0c-a076-9e348c0524eb/..issues" changelist="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" time="1358001807246" ignored="false" />
     <file path="/show.html.slim" changelist="beb48663-06b7-49fb-a6e6-7cbbf70fe8a5" time="1358088948732" ignored="false" />
@@ -68,7 +63,7 @@
       <file leaf-file-name="questions.html.slim" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/issues/questions.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="10" selection-start="133" selection-end="133" vertical-scroll-proportion="0.1632">
+            <state line="6" column="10" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -144,10 +139,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
-    <option name="y" value="24" />
-    <option name="width" value="1317" />
-    <option name="height" value="744" />
+    <option name="x" value="48" />
+    <option name="y" value="-4" />
+    <option name="width" value="1319" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -610,10 +605,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
-    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Rails.Development: fewseconds">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
@@ -1169,7 +1164,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="24" width="1317" height="744" extended-state="6" />
+    <frame x="48" y="-4" width="1319" height="773" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45790252" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1305,9 +1300,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/issue.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="79" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="79" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/questions.html.slim">
@@ -1355,7 +1348,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/issues/questions.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="10" selection-start="133" selection-end="133" vertical-scroll-proportion="0.1632">
+        <state line="6" column="10" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

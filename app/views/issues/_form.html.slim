@@ -1,27 +1,37 @@
-= nested_form_for @issue, html: { multipart: true } do |f|
-  - if @issue.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
-      ul
-        - @issue.errors.full_messages.each do |message|
-          li = message
+= form_for @issue, html: { multipart: true , class: "form-horizontal"} do |f|
+  .row
+    .span6
+      h3 New issue
+      - if @issue.errors.any?
+        #error_explanation
+          h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
+          ul
+            - @issue.errors.full_messages.each do |message|
+              li = message
 
-  .field
-    = f.file_field :image
-  .field
-    = f.text_field :name, placeholder: "Name"
-  .field
-    = f.text_area :instructions, placeholder: "Instructions", cols: 70, rows: 5
+      .field
+        = f.file_field :image, validate: { :presence => true }
+      .field
+        = f.text_field :name, placeholder: "Name"
+      .field
+        = f.text_area :instructions, placeholder: "Instructions", cols: 45, rows: 5
 
-  h3 Questions
-  .field
-    = f.fields_for :questions do |q|
-      = q.text_field :body
-      | &nbsp;
-      = q.link_to_remove "Remove this task"
+    .span6
+      h3 Questions
+      .field
+        = f.fields_for :questions do |q|
+          = q.text_field :body
+          '
+          = link_to "#", class: "btn" do
+            i.icon-minus
+            '
+            | Remove
 
-  = f.link_to_add "Add a question", :questions, id: "add_question"
-  br
-  br
+      = link_to "#", id: "add_question", class: "btn" do
+        i.icon-plus
+        '
+        | Add question
+      br
+      br
 
   .actions = f.submit 'Save', class: "btn"
