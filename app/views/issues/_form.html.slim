@@ -1,3 +1,6 @@
+- content_for :javascript_includes do
+  = javascript_include_tag "new.issue.js"
+
 = form_for @issue, html: { multipart: true , class: "form-horizontal"} do |f|
   .row
     .span6
@@ -18,14 +21,10 @@
 
     .span6
       h3 Questions
-      .field
-        = f.fields_for :questions do |q|
-          = q.text_field :body
-          '
-          = link_to "#", class: "btn" do
-            i.icon-minus
-            '
-            | Remove
+      #questions
+        .field
+          = f.fields_for :questions do |q|
+            = q.text_field :body
 
       = link_to "#", id: "add_question", class: "btn" do
         i.icon-plus
