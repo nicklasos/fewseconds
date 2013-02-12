@@ -18,7 +18,7 @@ class Issue < ActiveRecord::Base
   private
 
   def min_and_max_questions
-    errors.add(:base, "You must provide at least one question") if questions.size < 1
-    errors.add(:base, "You must provide max four question") if questions.size > 4
+    errors.add(:base, I18n.t('errors.issue.to_short')) if questions.size < 1
+    errors.add(:base, I18n.t('errors.issue.to_long')) if questions.size > 4
   end
 end
