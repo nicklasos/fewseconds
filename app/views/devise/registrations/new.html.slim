@@ -1,13 +1,10 @@
-.row
-  .span5
-    h1 Sign up
+= devise_error_messages!
 
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-      = devise_error_messages!
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin"}) do |f|
+  h2.form-signin-heading Please sign up
+  = f.email_field :email, placeholder: "email", class: "input-block-level"
+  = f.password_field :password, placeholder: "password", class: "input-block-level"
+  = f.password_field :password_confirmation, placeholder: "confirm password", class: "input-block-level"
+  = f.submit "Sign up", class: "btn btn-large primary"
 
-      div= f.email_field :email, placeholder: "email"
-      div= f.password_field :password, placeholder: "password"
-      div= f.password_field :password_confirmation, placeholder: "confirm password"
-      div= f.submit "Sign up", class: "btn btn-large"
-
-    = render "devise/shared/links"
+  = render "devise/shared/links"

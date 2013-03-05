@@ -1,8 +1,10 @@
-h1 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  .signup-form
-    div= f.email_field :email, placeholder: "email"
-    div= f.password_field :password, placeholder: "password"
-    div= f.submit "Sign in", class: "btn btn-large"
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f|
+  h2.form-signin-heading Please sign in
+  = f.email_field :email, placeholder: "email", class: "input-block-level"
+  = f.password_field :password, placeholder: "password", class: "input-block-level"
+  = f.submit "Sign in", class: "btn btn-large btn-primary"
 
-= render "devise/shared/links"
+  = render "devise/shared/links"
+
+
+
