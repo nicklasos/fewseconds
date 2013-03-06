@@ -1,44 +1,46 @@
 - content_for :javascript_includes do
   = javascript_include_tag "new.issue.js"
 
-= form_for @issue, html: { multipart: true , class: "form-horizontal"} do |f|
-  .row
-    .span12
-      h3 New issue
-      - if @issue.errors.any?
-        #error_explanation
-          h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
-          ul
-            - @issue.errors.full_messages.each do |message|
-              li = message
+.row
+  .span9.box
+    = form_for @issue, html: { multipart: true , class: "form-horizontal"} do |f|
+      .row
+        .span12
+          h3 New issue
+          - if @issue.errors.any?
+            #error_explanation
+              h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
+              ul
+                - @issue.errors.full_messages.each do |message|
+                  li = message
 
-      .control-group
-        = f.label :image, class: "control-label"
-        .controls
-          = f.file_field :image, "data-validates" => "presence"
-      .control-group
-        = f.label :name, class: "control-label"
-        .controls
-          = f.text_field :name, placeholder: "Enter name...", "data-validates" => "presence|minlength:3"
-      .control-group
-        = f.label :instructions, class: "control-label"
-        .controls
-          = f.text_area :instructions, placeholder: "Instructions...", cols: 45, rows: 5
+          .control-group
+            = f.label :image, class: "control-label"
+            .controls
+              = f.file_field :image, "data-validates" => "presence", class: "question-field"
+          .control-group
+            = f.label :name, class: "control-label"
+            .controls
+              = f.text_field :name, placeholder: "Enter name...", "data-validates" => "presence|minlength:3", class: "question-field"
+          .control-group
+            = f.label :instructions, class: "control-label"
+            .controls
+              = f.text_area :instructions, placeholder: "Instructions...", rows: 5, class: "question-field"
 
-  .row
-    .span12
-      h3 Questions
-      #questions
-        .control-group
-          .controls
-            = f.fields_for :questions do |q|
-              = q.text_field :body, "data-validates" => "presence|minlength:3|maxlength:255"
+      .row
+        .span12
+          h3 Questions
+          #questions
+            .control-group
+              .controls
+                = f.fields_for :questions do |q|
+                  = q.text_field :body, "data-validates" => "presence|minlength:3|maxlength:255", class: "question-field"
 
-      .control-group
-        .controls
-          = link_to "#", id: "add_question", class: "btn" do
-            i.icon-plus
-            '
-            | Add question
+          .control-group
+            .controls
+              = link_to "#", id: "add_question", class: "btn" do
+                i.icon-plus
+                '
+                | Add question
 
-  .form-actions = f.submit 'Create', class: "btn btn-primary"
+      .form-actions = f.submit 'Create', class: "btn btn-primary btn-large"

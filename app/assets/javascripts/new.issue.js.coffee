@@ -1,4 +1,4 @@
-question_tpl = '<div class="control-group"><div class="controls"><input size="30" type="text" name="issue[questions_attributes][%key][body]" data-validates="presence|minlength:3|maxlength:255"> <a class="btn remove_question"><i class="icon-minus"></i> Remove</a></div></div>'
+question_tpl = '<div class="control-group"><div class="controls"><input size="30" type="text" name="issue[questions_attributes][%key][body]" data-validates="presence|minlength:3|maxlength:255" class="question-field"> <a class="btn remove_question"><i class="icon-minus"></i> Remove</a></div></div>'
 
 questions = key = 1
 
