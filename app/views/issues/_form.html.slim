@@ -5,8 +5,9 @@
   .span9.box
     = form_for @issue, html: { multipart: true , class: "form-horizontal"} do |f|
       .row
-        .span12
+        .span9
           h3 New issue
+          .hr
           - if @issue.errors.any?
             #error_explanation
               h2 = "#{pluralize(@issue.errors.count, "error")} prohibited this issue from being saved:"
@@ -28,13 +29,14 @@
               = f.text_area :instructions, placeholder: "Instructions...", rows: 5, class: "question-field"
 
       .row
-        .span12
+        .span9
           h3 Questions
+          .hr
           #questions
             .control-group
               .controls
                 = f.fields_for :questions do |q|
-                  = q.text_field :body, "data-validates" => "presence|minlength:3|maxlength:255", class: "question-field"
+                  = q.text_field :body, "data-validates" => "presence|minlength:3|maxlength:255", class: "question-field", placeholder: "Ask something..."
 
           .control-group
             .controls

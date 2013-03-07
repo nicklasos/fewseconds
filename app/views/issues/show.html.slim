@@ -8,9 +8,14 @@ p#notice = notice
     p
       strong Name: 
       = @issue.name
-    p
-      strong Instructions: 
-      = @issue.instructions
+    - unless @issue.instructions.empty?
+      p
+        strong Instructions: 
+        = @issue.instructions
+
+    - if can? :destroy, @issue
+      p
+        = link_to 'Delete this issue', issue_path(@issue), method: :delete, confirm: 'Are you sure?', class: "btn btn-danger"
 
 br
 .row
@@ -18,7 +23,7 @@ br
     h2 Questions and Answers
     - @issue.questions.each do |q|
       - if q.answers.any?
-        .box
+        .box.answer-box
           h3= q.body
           - answers_count = q.answers.count
           - q.answers.all.each_with_index do |a, index|
@@ -26,7 +31,5 @@ br
             '
             = a.body
             - if answers_count != index+1
-              .hr
+              .hr-light
 
-- if can? :destroy, @issue
-  = link_to 'Delete', issue_path(@issue), method: :delete, confirm: 'Are you sure?'

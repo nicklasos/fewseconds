@@ -5,11 +5,20 @@ delay 1000, ->
 
 
 window.question = 1
+
 $ ->
-  $('.next_question').click (e) ->
+  $('.answer-field').keypress (e) ->
+    if (e.which == 13)
+      next_question(e)
+      e.preventDefault()
+
+  $('.next_question').click (e) -> next_question(e)
+
+  next_question = (e) ->
+    console.log(e)
+    e.preventDefault()
     $("#question_#{window.question}").hide()
     window.question+=1
-    next_question = $("#question_#{window.question}")
+    next = $("#question_#{window.question}")
     $('#answer').submit() if next_question.length == 0
-    next_question.show()
-    e.preventDefault()
+    next.show()
