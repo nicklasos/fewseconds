@@ -7,11 +7,18 @@ div#image
 .container
   .row#questions style="display: none"
     .span10
-      = form_tag answer_issue_path(@issue) do
-        p Questions
+      .header-answer
+        h1 
+          | fewseconds 
+          small answer the questions, please
+      = form_tag answer_issue_path(@issue), class: "form-inline", id: "answer" do
+        - i = 0
         - @issue.questions.all.each do |q|
-          div#question
+          div id="question_#{i+=1}" class="box#{i==0 ? '' : ' hide'}"
             p= q.body
-            p= text_field_tag "answers[#{q.id}]"
-
-        p= submit_tag
+            p
+              = text_field_tag "answers[#{q.id}]", "", placeholder: "Answer the question here...", class: "answer-field"
+              '
+              a href="#" class="btn next_question" 
+                | Next Question 
+                i.icon-arrow-right
