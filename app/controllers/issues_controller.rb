@@ -37,7 +37,7 @@ class IssuesController < ApplicationController
   end
 
   def answer
-    params[:answers].each {|index, body| Answer.create(question_id: index, body: body)}
+    params[:answers].each {|index, body| current_user.answers.create(question_id: index, body: body)}
     Complete.create(user_id: current_user.id, issue_id: params[:id])
 
     redirect_to :back

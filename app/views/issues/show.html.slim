@@ -16,15 +16,17 @@ br
 .row
   .span12
     h2 Questions and Answers
-    .row
-      - @issue.questions.each do |q|
-        .span3
-          = q.body
-          ul
-            - q.answers.all.each do |a|
-              li= a.body
-
-
+    - @issue.questions.each do |q|
+      - if q.answers.any?
+        .box
+          h3= q.body
+          - answers_count = q.answers.count
+          - q.answers.all.each_with_index do |a, index|
+            = gravatar_image_tag(a.user.email, gravatar: {size: 30}) 
+            '
+            = a.body
+            - if answers_count != index+1
+              .hr
 
 - if can? :destroy, @issue
   = link_to 'Delete', issue_path(@issue), method: :delete, confirm: 'Are you sure?'
