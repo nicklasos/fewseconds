@@ -6,9 +6,10 @@ delay 1000, ->
 
 window.question = 1
 $ ->
-  $('.next_question').click ->
+  $('.next_question').click (e) ->
     $("#question_#{window.question}").hide()
     window.question+=1
     next_question = $("#question_#{window.question}")
     $('#answer').submit() if next_question.length == 0
     next_question.show()
+    e.preventDefault()

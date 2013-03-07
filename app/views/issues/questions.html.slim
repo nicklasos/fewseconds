@@ -19,6 +19,9 @@ div#image
             p
               = text_field_tag "answers[#{q.id}]", "", placeholder: "Answer the question here...", class: "answer-field"
               '
-              a href="#" class="btn next_question" 
-                | Next Question 
-                i.icon-arrow-right
+              - if @issue.questions.all.count == i
+                = submit_tag "That's all folks!", class: "btn btn-primary"
+              - else
+                a href="#" class="btn next_question" 
+                  | Next Question 
+                  i.icon-arrow-right

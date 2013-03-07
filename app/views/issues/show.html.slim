@@ -1,23 +1,28 @@
 p#notice = notice
 
-p
-  = image_tag @issue.image.url(:thumb)
-p
-  strong Name:
-  = @issue.name
-p
-  strong Instructions:
-  = @issue.instructions
+.row
+  .span3
+    .thumbnail
+      = link_to image_tag(@issue.image.url(:thumb)), @issue.image.url
+  .span9
+    p
+      strong Name: 
+      = @issue.name
+    p
+      strong Instructions: 
+      = @issue.instructions
 
-p
-  h4 Questions
-  .row
-    - @issue.questions.each do |q|
-      .span3
-        = q.body
-        ul
-          - q.answers.all.each do |a|
-            li= a.body
+br
+.row
+  .span12
+    h2 Questions and Answers
+    .row
+      - @issue.questions.each do |q|
+        .span3
+          = q.body
+          ul
+            - q.answers.all.each do |a|
+              li= a.body
 
 
 
