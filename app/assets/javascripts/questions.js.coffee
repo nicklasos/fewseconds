@@ -15,10 +15,9 @@ $ ->
   $('.next_question').click (e) -> next_question(e)
 
   next_question = (e) ->
-    console.log(e)
     e.preventDefault()
     $("#question_#{window.question}").hide()
     window.question+=1
     next = $("#question_#{window.question}")
-    $('#answer').submit() if next_question.length == 0
+    $('#answer').submit() if next.length == 0
     next.show()
