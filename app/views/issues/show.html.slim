@@ -22,14 +22,15 @@ br
   .span12
     h2 Questions and Answers
     - @issue.questions.each do |q|
-      - if q.answers.any?
-        .box.answer-box
-          h3= q.body
-          - answers_count = q.answers.count
+      .box.answer-box
+        h3= q.body
+        - answers_count = q.answers.count
+        - if answers_count == 0
+          h5 There is no answers yet
+        -else
           - q.answers.all.each_with_index do |a, index|
             = gravatar_image_tag(a.user.email, gravatar: {size: 30}) 
             '
             = a.body
             - if answers_count != index+1
               .hr-light
-

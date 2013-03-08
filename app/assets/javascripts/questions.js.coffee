@@ -1,12 +1,16 @@
-delay = (ms, func) -> setTimeout func, ms
-delay 1000, ->
-  $("#image").hide()
-  $("#questions").show()
-
-
-window.question = 1
-
 $ ->
+  $("#start_test").click ->
+    $("#instructions").hide()
+    $("#image").show()
+
+    delay = (ms, func) -> setTimeout func, ms
+    delay 1000, ->
+      $("#image").hide()
+      $("#questions").show()
+      $("#answer_field_1").focus()
+
+  window.question = 1
+
   $('.answer-field').keypress (e) ->
     if (e.which == 13)
       next_question(e)
@@ -21,3 +25,4 @@ $ ->
     next = $("#question_#{window.question}")
     $('#answer').submit() if next.length == 0
     next.show()
+    $("#answer_field_#{window.question}").focus()

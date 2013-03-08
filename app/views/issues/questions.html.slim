@@ -1,7 +1,20 @@
 - content_for :javascript_includes do
   = javascript_include_tag "questions.js"
 
-div#image
+.container
+  .row#instructions
+    .span10
+      br
+      .box
+        - unless @issue.instructions.empty?
+          strong Read the instructions: 
+          = @issue.instructions
+        center
+          br
+          button id="start_test" class="btn btn-large btn-primary" Start test!
+
+
+div#image style="display: none"
   = image_tag @issue.image.url
 
 .container
@@ -17,7 +30,7 @@ div#image
           div id="question_#{i+=1}" class="box#{i==0 ? '' : ' hide'}"
             p= q.body
             p
-              = text_field_tag "answers[#{q.id}]", "", placeholder: "Answer the question here...", class: "answer-field"
+              = text_field_tag "answers[#{q.id}]", "", placeholder: "Answer the question here...", class: "answer-field", id: "answer_field_#{i}"
               '
               - if @issue.questions.all.count == i
                 = submit_tag "That's all folks!", class: "btn btn-primary"
