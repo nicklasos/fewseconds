@@ -1,3 +1,9 @@
+- if user_signed_in?
+  ul class="nav nav-tabs"
+    li class="#{'active' if params['tab'].blank?}" = link_to "Uncompleted", root_path
+    li class="#{'active' if params['tab'] == 'completed'}" = link_to "Completed", "?tab=completed"
+    li class="#{'active' if params['tab'] == 'my'}" = link_to "My", "?tab=my" 
+
 .row-fluid
   - @issues.in_groups_of(6, false) do |issues|
     ul.thumbnails

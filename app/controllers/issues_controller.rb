@@ -3,7 +3,21 @@ class IssuesController < ApplicationController
   before_filter :fix_paperclip, only: [:create, :update]
 
   def index
-    @issues = Issue.all
+    unless params['tab'].blank?
+      authenticate_user!
+    end
+
+    if params['tab'] == 'completed'
+      @issues = current_user.completed
+    elsif params['tab'] == 'my'
+      @issues = current_user.issues
+    else
+      if user_signed_in?
+        @issues = current_user.uncompleted
+      else
+        @issues = Issue.all
+      end
+    end
   end
 
   def show

@@ -14,4 +14,10 @@ class User < ActiveRecord::Base
   def completed_issue?(issue)
     Complete.where(user_id: self.id, issue_id: issue.id).any? or self.id.eql? issue.user_id
   end
+
+  def uncompleted
+    ids = self.completed.map(&:id)
+    ids.concat self.issues.map(&:id)
+    Issue.where("id NOT IN (?)", ids)
+  end
 end
