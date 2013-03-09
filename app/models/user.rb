@@ -16,8 +16,6 @@ class User < ActiveRecord::Base
   end
 
   def uncompleted
-    ids = self.completed.map(&:id)
-    ids.concat self.issues.map(&:id)
-    Issue.where("id NOT IN (?)", ids)
+    Issue.where("id NOT IN (?)", self.completed.map(&:id).concat(self.issues.map(&:id)))
   end
 end

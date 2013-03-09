@@ -4,7 +4,7 @@ $ ->
     $("#image").show()
 
     delay = (ms, func) -> setTimeout func, ms
-    delay 1000, ->
+    delay 6000, ->
       $("#image").hide()
       $("#questions").show()
       $("#answer_field_1").focus()
